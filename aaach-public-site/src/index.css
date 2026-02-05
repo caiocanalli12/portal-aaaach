@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+/* Font Faces - Adjust paths based on actual extracted filenames */
+@font-face {
+  font-family: 'Varsity Team';
+  /* Assuming the zip contained these files, if not we will adjust */
+  src: url('./assets/fonts/VarsityTeam-Bold.otf') format('opentype'),
+    /* Example */
+    url('./assets/fonts/vteam.ttf') format('truetype');
+  /* Common name */
+  font-weight: bold;
+}
+
+/* Montserrat is usually available via Google Fonts, but since we have local files we can use them or Import from Google for reliability */
+
+@theme {
+  /* College Theme Palette */
+  --color-college-bg: #F5F5F0;
+  /* Off-white / Cream */
+  --color-college-green: #004d25;
+  /* Deep "Varsity" Green */
+  --color-college-gold: #D4AF37;
+  /* Classic Varsity Gold/Yellow */
+  --color-college-text: #1a1a1a;
+  /* Nearly black for contrast */
+  --color-college-red: #c90000;
+  /* accent red often found in sports */
+
+  --font-sans: 'Montserrat', sans-serif;
+  --font-display: 'Varsity Team', 'Impact', sans-serif;
+
+  --image-gradient-college: linear-gradient(to bottom, transparent, rgba(0, 77, 37, 0.8));
+}
+
+:root {
+  background-color: var(--color-college-bg);
+  color: var(--color-college-text);
+  font-family: 'Montserrat', sans-serif;
+  color-scheme: light;
+  /* Switched to Light Mode */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-college-bg);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EBEBE0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-college-green);
+  border-radius: 0;
+  /* Square for rougher college look */
+  border: 2px solid #EBEBE0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #003318;
+}

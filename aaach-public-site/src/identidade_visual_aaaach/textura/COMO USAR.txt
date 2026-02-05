@@ -1,0 +1,18 @@
+Como usar em outras cores:
+
+Cores escuras:
+Abra o Photoshop;
+Importe a imagem que deseja adicionar textura;
+Vá em Arquivo > Abrir e adicione a imagem de textura;
+No painel de Camadas, posicione a textura acima da imagem principal;
+Selecione a textura e, no canto superior esquerdo do painel de Camadas, altere o modo de mesclagem de "Normal" para "Sobrepor";
+Teste outros modos de mesclagem e use o controle deslizante de "Opacidade" para modificar a aparência da textura na imagem principal;
+Salve o projeto e/ou exporte-o como PNG ou JPG para compartilhá-lo na internet e em aplicativos.
+
+Cores Claras:
+Importe a imagem que deseja adicionar textura;
+Vá em Arquivo > Abrir e adicione a imagem de textura;
+No painel de Camadas, posicione a textura acima da imagem principal;
+Selecione a textura e, no canto superior esquerdo do painel de Camadas, altere o modo de mesclagem de "Normal" para "Multiplicação";
+Teste outros modos de mesclagem e use o controle deslizante de "Opacidade" para modificar a aparência da textura na imagem principal;
+Salve o projeto e/ou exporte-o como PNG ou JPG para compartilhá-lo na internet e em aplicativos.
