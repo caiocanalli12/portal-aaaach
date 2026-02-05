@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+};
+
 const Calendar = () => {
     // Start at current date or Jan 2026 if current date is not in 2026 (for safe fallback, though user implies context is 2026)
     // Given the prompt, we will default to the current real date if in 2026, otherwise Jan 2026.
@@ -83,10 +88,24 @@ const Calendar = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-7 gap-2 md:gap-4 bg-white p-4 border-4 border-black shadow-[12px_12px_0px_#ccc]">
+            <motion.div
+                className="grid grid-cols-7 gap-2 md:gap-4 bg-white p-4 border-4 border-black shadow-[12px_12px_0px_#ccc] touch-pan-y"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                    const swipe = swipePower(offset.x, velocity.x);
+
+                    if (swipe < -swipeConfidenceThreshold) {
+                        if (!isMonthEnd) handleNextMonth();
+                    } else if (swipe > swipeConfidenceThreshold) {
+                        if (!isMonthStart) handlePrevMonth();
+                    }
+                }}
+            >
                 {/* Weekday Headers */}
                 {['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((day, i) => (
-                    <div key={i} className="text-center font-black font-display text-xl py-2 bg-gray-100 border-2 border-transparent">{day}</div>
+                    <div key={i} className="text-center font-black font-display text-xl py-2 bg-gray-100 border-2 border-transparent select-none">{day}</div>
                 ))}
 
                 {/* Empty slots for previous month days */}
@@ -112,7 +131,7 @@ const Calendar = () => {
                             onClick={() => handleDayClick(event)}
                             whileHover={event ? { scale: 1.05 } : {}}
                             className={`
-                                aspect-square flex flex-col items-center justify-between relative border-2 p-1 overflow-visible z-10 hover:z-30
+                                aspect-square flex flex-col items-center justify-between relative border-2 p-1 overflow-visible z-10 hover:z-30 select-none
                                 ${isToday ? 'bg-college-gold border-black' : event ? 'bg-college-green border-black cursor-pointer' : 'bg-white border-gray-100 hover:border-black'}
                             `}
                         >
@@ -131,7 +150,7 @@ const Calendar = () => {
                         </motion.div>
                     );
                 })}
-            </div>
+            </motion.div>
         </section>
     );
 };

@@ -17,6 +17,11 @@ const HERO_ITEMS = [
     }
 ];
 
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+};
+
 const HeroCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -38,11 +43,23 @@ const HeroCarousel = () => {
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -100 }}
                         transition={{ duration: 0.5 }}
-                        className="absolute inset-0 w-full h-full"
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                            const swipe = swipePower(offset.x, velocity.x);
+
+                            if (swipe < -swipeConfidenceThreshold) {
+                                paginate(1);
+                            } else if (swipe > swipeConfidenceThreshold) {
+                                paginate(-1);
+                            }
+                        }}
+                        className="absolute inset-0 w-full h-full touch-pan-y"
                     >
                         {/* Background Image - Removed Provisionally */}
                         <div className="w-full h-full bg-college-green/10 flex items-center justify-center">
