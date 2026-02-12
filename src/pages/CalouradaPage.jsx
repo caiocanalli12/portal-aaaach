@@ -4,6 +4,8 @@ import { Calendar, Clock, MapPin, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 
+import calouradaImg from '../assets/images/ARTES/calourada.jpeg';
+
 const CalouradaPage = () => {
     return (
         <MainLayout>
@@ -23,7 +25,7 @@ const CalouradaPage = () => {
                         CALOURADA
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-600 font-medium">
-                        Recepção dos Bixos 2026
+                        Recepção dos Bixos 2k26
                     </p>
                 </div>
 
@@ -32,8 +34,12 @@ const CalouradaPage = () => {
                     {/* Description and Image */}
                     <div className="space-y-8">
                         {/* Main Image Placeholder */}
-                        <div className="w-full aspect-video bg-gray-200 border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden relative flex items-center justify-center">
-                            <span className="font-display font-bold text-gray-400 text-xl uppercase">Arte do Evento (Em Breve)</span>
+                        <div className="w-full aspect-video bg-white border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden relative flex items-center justify-center">
+                            <img
+                                src={calouradaImg}
+                                alt="Calourada 2026"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
 
                         {/* Description Text */}

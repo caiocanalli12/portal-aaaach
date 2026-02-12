@@ -74,7 +74,7 @@ const ManagementSection = () => {
             <div className="flex items-center gap-4 mb-12">
                 <div className="h-8 w-4 bg-college-green border-2 border-black -skew-x-12" />
                 <h2 className="text-3xl font-display font-black text-black uppercase tracking-tight">
-                    Gestão 2026
+                    Gestão 2k26
                 </h2>
                 <div className="h-1 flex-grow bg-black/10 mt-2" />
             </div>

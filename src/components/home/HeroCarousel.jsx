@@ -2,18 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+import bemVindoImg from '../../assets/images/ARTES/bem vindo.jpeg';
+
 const HERO_ITEMS = [
     {
         id: 1,
         title: "BEM-VINDO À AAAACH",
         subtitle: "IFUDEU FEDERAL APARECEU!",
-        image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2669&auto=format&fit=crop", // Campus/University vibe
+        image: bemVindoImg,
     },
     {
         id: 2,
-        title: "GESTÃO 2026",
+        title: "GESTÃO 2k26",
         subtitle: "INOVAÇÃO E RAÇA",
-        image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop", // Student/Leader vibe
+        image: null, // Art is coming soon
     }
 ];
 
@@ -61,11 +63,19 @@ const HeroCarousel = () => {
                         }}
                         className="absolute inset-0 w-full h-full touch-pan-y"
                     >
-                        {/* Background Image - Removed Provisionally */}
-                        <div className="w-full h-full bg-college-green/10 flex items-center justify-center">
-                            <div className="w-[120%] h-[20%] bg-college-green/20 rotate-12 blur-3xl absolute" />
-                            <div className="w-[120%] h-[20%] bg-college-gold/20 -rotate-12 blur-3xl absolute" />
-                        </div>
+                        {HERO_ITEMS[currentIndex].image ? (
+                            <img
+                                src={HERO_ITEMS[currentIndex].image}
+                                alt={HERO_ITEMS[currentIndex].title}
+                                className="w-full h-full object-cover"
+                            />
+                        ) : (
+                            /* Abstract Background for slides without image */
+                            <div className="w-full h-full bg-college-green/10 flex items-center justify-center">
+                                <div className="w-[120%] h-[20%] bg-college-green/20 rotate-12 blur-3xl absolute" />
+                                <div className="w-[120%] h-[20%] bg-college-gold/20 -rotate-12 blur-3xl absolute" />
+                            </div>
+                        )}
 
                         {/* Boxed Content Overlay */}
                         <div className="absolute inset-x-8 bottom-8 md:bottom-12 flex flex-col items-center text-center z-10">

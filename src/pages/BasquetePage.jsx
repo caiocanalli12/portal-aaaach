@@ -4,9 +4,9 @@ import { Calendar, Clock, MapPin, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 
-import voleiImg from '../assets/images/ARTES/volei_int.jpeg';
+import basqueteImg from '../assets/images/ARTES/basquete_int.jpeg';
 
-const VoleiPage = () => {
+const BasquetePage = () => {
     return (
         <MainLayout>
             <div className="w-full max-w-[1000px] mx-auto px-4 md:px-8 py-12">
@@ -22,7 +22,7 @@ const VoleiPage = () => {
                         <span className="font-display font-bold text-xs uppercase tracking-wider">ESPORTE</span>
                     </div>
                     <h1 className="text-5xl md:text-6xl font-display font-black text-black uppercase leading-none mb-4">
-                        VÔLEI INTEGRAÇÃO
+                        BASQUETE INTEGRAÇÃO
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-600 font-medium">
                         Integração Bixos e Veteranos
@@ -35,7 +35,7 @@ const VoleiPage = () => {
                     <div className="space-y-8">
                         {/* Main Image Placeholder */}
                         <div className="w-full aspect-video bg-white border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden relative flex items-center justify-center">
-                            <img src={voleiImg} alt="Vôlei Integração" className="w-full h-full object-cover" />
+                            <img src={basqueteImg} alt="Basquete Integração" className="w-full h-full object-cover" />
                         </div>
 
                         {/* Description Text */}
@@ -45,7 +45,7 @@ const VoleiPage = () => {
                                 Sobre o Evento
                             </h2>
                             <p className="text-gray-700 leading-relaxed text-justify">
-                                Será um jogo de vôlei descontraído, sem muitas formalidades, focado puramente na integração. O objetivo é criar um ambiente leve para que os bixos possam se conhecer melhor e interagir com os veteranos, fortalecendo a união da nossa atlética desde o início.
+                                Será um jogo de basquete descontraído, sem muitas formalidades, focado puramente na integração. O objetivo é criar um ambiente leve para que os bixos possam se conhecer melhor e interagir com os veteranos, fortalecendo a união da nossa atlética desde o início.
                             </p>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ const VoleiPage = () => {
                                     <Calendar className="text-college-dark-green shrink-0 mt-1" size={24} />
                                     <div>
                                         <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">DATA</p>
-                                        <p className="font-display font-bold text-xl">11 de Março</p>
+                                        <p className="font-display font-bold text-xl">10 de Março</p>
                                     </div>
                                 </div>
 
@@ -93,4 +93,4 @@ const VoleiPage = () => {
     );
 };
 
-export default VoleiPage;
+export default BasquetePage;

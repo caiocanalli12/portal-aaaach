@@ -46,20 +46,32 @@ const Calendar = () => {
 
     // Events Data (Month is 0-indexed: 0=Jan, 1=Feb, 2=Mar)
     const EVENTS = {
-        "2-11": { label: "VÔLEI", type: "sport", link: "/event/volei" },
-        "2-18": { label: "SEMÁFORO", type: "party", link: "/event/semaforo" },
-        "2-26": { label: "CALOURADA", type: "party", link: "/event/calourada" }
+        "1-23": [{ label: "VETERANOS COMEÇAM AQUI", type: "info", customBg: "#6b0202", noClick: true }],
+        "2-9": [{ label: "BIXOS COMEÇAM AQUI", type: "info", customBg: "#6b0202", noClick: true }],
+        "2-10": [{ label: "BASQUETE", type: "sport", link: "/event/basquete" }],
+        "2-11": [{ label: "VÔLEI", type: "sport", link: "/event/volei" }],
+        "2-18": [
+            { label: "SEMÁFORO", type: "party", link: "/event/semaforo", position: "top" },
+            { label: "I CHOPPADA", type: "party", link: "/event/choppada", position: "bottom" }
+        ],
+        "2-26": [{ label: "CALOURADA", type: "party", link: "/event/calourada" }]
     };
 
-    const handleDayClick = (event) => {
-        if (event && event.link) {
-            navigate(event.link);
+    const [selectedDayEvents, setSelectedDayEvents] = useState(null);
+
+    const handleDayClick = (dayEvents) => {
+        if (!dayEvents || dayEvents[0]?.noClick) return;
+
+        if (dayEvents.length === 1) {
+            navigate(dayEvents[0].link);
             window.scrollTo(0, 0);
+        } else {
+            setSelectedDayEvents(dayEvents);
         }
-    }
+    };
 
     return (
-        <section id="calendar" className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-12 mb-24">
+        <section id="calendar" className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-12 mb-24 relative">
             {/* Header */}
             <div className="flex flex-col md:flex-row items-end justify-between mb-8 border-b-4 border-black pb-4">
                 <div className="flex items-center gap-4">
@@ -89,7 +101,7 @@ const Calendar = () => {
             </div>
 
             <motion.div
-                className="grid grid-cols-7 gap-2 md:gap-4 bg-white p-4 border-4 border-black shadow-[12px_12px_0px_#ccc] touch-pan-y"
+                className="grid grid-cols-7 gap-2 md:gap-4 bg-white p-4 border-4 border-black shadow-[12px_12px_0px_#ccc] touch-pan-y relative z-0"
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={1}
@@ -123,34 +135,91 @@ const Calendar = () => {
                         today.getFullYear() === currentDate.getFullYear();
 
                     const eventKey = `${currentDate.getMonth()}-${day}`;
-                    const event = EVENTS[eventKey];
+                    const events = EVENTS[eventKey];
+                    const hasCustomBg = events && events[0]?.customBg;
+                    const isUnclickable = events && events[0]?.noClick;
 
                     return (
                         <motion.div
                             key={day}
-                            onClick={() => handleDayClick(event)}
-                            whileHover={event ? { scale: 1.05 } : {}}
+                            onClick={() => handleDayClick(events)}
+                            whileHover={events && !isUnclickable ? { scale: 1.05 } : {}}
+                            style={hasCustomBg ? { backgroundColor: hasCustomBg } : {}}
                             className={`
-                                aspect-square flex flex-col items-center justify-between relative border-2 p-1 overflow-visible z-10 hover:z-30 select-none
-                                ${isToday ? 'bg-college-gold border-black' : event ? 'bg-college-green border-black cursor-pointer' : 'bg-white border-gray-100 hover:border-black'}
+                                aspect-square flex flex-col items-center justify-between relative border-2 p-1 overflow-hidden z-10 hover:z-20 select-none
+                                ${isToday ? 'bg-college-gold border-black' :
+                                    hasCustomBg ? 'border-black text-white' :
+                                        events ? 'bg-college-green border-black cursor-pointer' :
+                                            'bg-white border-gray-100 hover:border-black'}
+                                ${isUnclickable ? 'cursor-default' : ''}
                             `}
                         >
-                            <span className={`text-lg md:text-2xl font-bold font-display z-10 ${isToday ? 'text-black' : event ? 'text-white' : 'text-gray-400 hover:text-black'}`}>
+                            <span className={`text-lg md:text-2xl font-bold font-display z-10 ${isToday ? 'text-black' : (events || hasCustomBg) ? 'text-white' : 'text-gray-400 hover:text-black'}`}>
                                 {day}
                             </span>
 
-                            {/* Event Sticker */}
-                            {event && (
-                                <div className="absolute bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-full z-20">
-                                    <div className={`bg-black text-white text-[8px] md:text-[10px] lg:text-xs font-bold px-1 py-0.5 md:py-1 transform ${day % 2 === 0 ? 'rotate-2' : '-rotate-2'} hover:rotate-0 transition-transform shadow-[2px_2px_0px_#fff] text-center leading-none border border-white truncate`}>
-                                        {event.label}
-                                    </div>
+                            {/* Event Stickers Container - Pinned to Bottom */}
+                            {events && (
+                                <div className="absolute bottom-1 w-full px-0.5 flex flex-col gap-1 z-20">
+                                    {events.map((event, index) => (
+                                        <div
+                                            key={index}
+                                            className={`bg-black text-white text-[8px] md:text-[10px] lg:text-[10px] font-bold px-1 py-0.5 
+                                                shadow-[1px_1px_0px_#fff] text-center leading-none border border-white truncate transform
+                                                ${events.length === 1
+                                                    ? (day % 2 === 0 ? 'rotate-2' : '-rotate-2')
+                                                    : (index % 2 === 0 ? '-rotate-2' : 'rotate-2')
+                                                }
+                                            `}
+                                        >
+                                            {event.label}
+                                        </div>
+                                    ))}
                                 </div>
                             )}
                         </motion.div>
                     );
                 })}
             </motion.div>
+
+            {/* Selection Modal */}
+            {selectedDayEvents && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setSelectedDayEvents(null)}>
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="bg-white border-4 border-black shadow-[8px_8px_0px_#college-green] p-6 w-full max-w-sm relative"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setSelectedDayEvents(null)}
+                            className="absolute top-2 right-2 p-1 hover:bg-gray-100 border-2 border-transparent hover:border-black transition-colors"
+                        >
+                            <span className="font-display font-black text-xl">X</span>
+                        </button>
+
+                        <h3 className="text-2xl font-display font-black uppercase mb-6 text-center pr-6">
+                            Escolha o Evento
+                        </h3>
+
+                        <div className="space-y-3">
+                            {selectedDayEvents.map((event, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => {
+                                        navigate(event.link);
+                                        window.scrollTo(0, 0);
+                                        setSelectedDayEvents(null);
+                                    }}
+                                    className="w-full bg-college-green border-2 border-black p-4 font-display font-bold text-xl uppercase text-white shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
+                                >
+                                    {event.label}
+                                </button>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+            )}
         </section>
     );
 };

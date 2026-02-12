@@ -4,6 +4,8 @@ import { Calendar, Clock, MapPin, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 
+import semaforoImg from '../assets/images/ARTES/semaforo.jpeg';
+
 const SemaforoPage = () => {
     return (
         <MainLayout>
@@ -32,8 +34,8 @@ const SemaforoPage = () => {
                     {/* Description and Image */}
                     <div className="space-y-8">
                         {/* Main Image Placeholder */}
-                        <div className="w-full aspect-video bg-gray-200 border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden relative flex items-center justify-center">
-                            <span className="font-display font-bold text-gray-400 text-xl uppercase">Arte do Evento (Em Breve)</span>
+                        <div className="w-full aspect-video bg-white border-4 border-black shadow-[8px_8px_0px_#000] overflow-hidden relative flex items-center justify-center">
+                            <img src={semaforoImg} alt="Semáforo dos Bixos" className="w-full h-full object-cover" />
                         </div>
 
                         {/* Description Text */}

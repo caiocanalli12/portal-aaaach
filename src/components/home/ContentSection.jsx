@@ -16,14 +16,15 @@ const ContentCard = ({ title, subtitle, category, image, date, link }) => {
         <motion.div
             onClick={handleClick}
             whileHover={{ y: -8 }}
-            className={`relative min-w-[280px] md:min-w-[320px] aspect-[4/3] bg-white border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] group overflow-hidden ${link ? 'cursor-pointer' : ''}`}
+            className={`relative w-[280px] md:w-[320px] shrink-0 aspect-[4/3] bg-white border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] group overflow-hidden ${link ? 'cursor-pointer' : ''}`}
         >
             {/* Image Half */}
             <div className="h-[65%] w-full overflow-hidden border-b-4 border-black relative bg-gray-100 flex items-center justify-center">
-                {/* Image Removed Provisionaly */}
-                <div className="text-gray-300 font-display font-bold text-4xl opacity-20 transform -rotate-12">
-                    ARTE
-                </div>
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
 
                 <div className="absolute top-4 left-4 bg-college-gold border-2 border-black px-3 py-1 shadow-[4px_4px_0px_#000]">
                     <span className="text-black text-xs font-display font-bold tracking-wider uppercase">
@@ -85,15 +86,34 @@ const CarouselRow = ({ title, items, id }) => {
     );
 };
 
-import jogosImage from '../../assets/images/jogos.png';
+
+import basqueteImg from '../../assets/images/ARTES/basquete_int.jpeg';
+import voleiImg from '../../assets/images/ARTES/volei_int.jpeg';
+import semaforoImg from '../../assets/images/ARTES/semaforo.jpeg';
+import jogosImg from '../../assets/images/ARTES/jajogos.jpg';
+
+
+import treinosImg from '../../assets/images/ARTES/treinos.jpeg';
+
+import amistososImg from '../../assets/images/ARTES/amistosos.jpeg';
+
+import ichoppadaImg from '../../assets/images/ARTES/ichoppada.jpeg';
 
 const ContentSection = () => {
     const events = [
         {
+            title: "BASQUETE INTEGRAÇÃO",
+            subtitle: "Integração Bixos e Veteranos",
+            category: "ESPORTE",
+            image: basqueteImg,
+            date: "10/03",
+            link: "/event/basquete"
+        },
+        {
             title: "VÔLEI INTEGRAÇÃO",
             subtitle: "Integração Bixos e Veteranos",
             category: "ESPORTE",
-            image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2607&auto=format&fit=crop",
+            image: voleiImg,
             date: "11/03",
             link: "/event/volei"
         },
@@ -101,13 +121,21 @@ const ContentSection = () => {
             title: "SEMÁFORO",
             subtitle: "Para começar com o pé direito!",
             category: "INTEGRAÇÃO",
-            image: "https://images.unsplash.com/photo-1565153907400-7e01a9ab25f3?q=80&w=2574&auto=format&fit=crop", // Traffic Light (High Reliability)
+            image: semaforoImg,
             date: "18/03",
             link: "/event/semaforo"
         },
         {
+            title: "I CHOPPADA DO LAGARTO",
+            subtitle: "A farra continua!",
+            category: "FESTAS",
+            image: ichoppadaImg, // Replaced placeholder with imported image
+            date: "18/03",
+            link: "/event/choppada"
+        },
+        {
             title: "CALOURADA",
-            subtitle: "Recepção dos Bixos 2026",
+            subtitle: "Recepção dos Bixos 2k26",
             category: "FESTAS",
             image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2670&auto=format&fit=crop",
             date: "26/03",
@@ -120,19 +148,19 @@ const ContentSection = () => {
             title: "TREINOS GERAIS",
             subtitle: "Confira a grade semanal",
             category: "ESPORTE",
-            image: "https://images.unsplash.com/photo-1589579234235-77987b7a67f6?q=80&w=2670&auto=format&fit=crop"
+            image: treinosImg
         },
         {
             title: "AMISTOSOS",
             subtitle: "Venha jogar e torcer!",
             category: "ESPORTE",
-            image: "https://images.unsplash.com/photo-1626248982855-5207c777e594?q=80&w=2574&auto=format&fit=crop"
+            image: amistososImg
         },
         {
             title: "JOGOS",
             subtitle: "Jogos Interatléticas (EM BREVE!)",
             category: "ESPORTE",
-            image: jogosImage
+            image: jogosImg
         }
     ];
 
