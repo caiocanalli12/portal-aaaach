@@ -162,7 +162,7 @@ const Calendar = () => {
 
                             {/* Event Stickers Container - Pinned to Bottom */}
                             {events && (
-                                <div className="absolute bottom-1 w-full px-0.5 flex flex-col gap-0.5 md:gap-1 z-20">
+                                <div className="hidden md:flex absolute bottom-1 w-full px-0.5 flex-col gap-0.5 md:gap-1 z-20">
                                     {events.map((event, index) => (
                                         <div
                                             key={index}
@@ -184,13 +184,44 @@ const Calendar = () => {
                 })}
             </motion.div>
 
+            {/* Mobile Legend */}
+            <div className="mt-8 md:hidden flex flex-col gap-3">
+                {Object.entries(EVENTS)
+                    .filter(([key]) => key.startsWith(`${currentDate.getMonth()}-`))
+                    .sort((a, b) => parseInt(a[0].split('-')[1]) - parseInt(b[0].split('-')[1]))
+                    .flatMap(([key, dayEvents]) => {
+                        const day = key.split('-')[1];
+                        return dayEvents.map(event => ({ ...event, day }));
+                    })
+                    .map((event, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => {
+                                if (event.noClick) return;
+                                navigate(event.link);
+                                window.scrollTo(0, 0);
+                            }}
+                            disabled={event.noClick}
+                            className={`w-full flex items-center gap-4 bg-white border-2 border-black p-3 shadow-[4px_4px_0px_#000] active:translate-y-1 active:shadow-none transition-all ${event.noClick ? 'opacity-80' : ''}`}
+                        >
+                            <div
+                                className={`w-12 h-12 shrink-0 flex items-center justify-center border-2 border-black font-display font-bold text-xl text-white shadow-[2px_2px_0px_rgba(0,0,0,0.2)] ${event.customBg ? '' : 'bg-college-green'}`}
+                                style={{ backgroundColor: event.customBg }}
+                            >
+                                {event.day}
+                            </div>
+                            <span className="font-display font-bold text-lg uppercase text-left leading-tight text-black">
+                                {event.label}
+                            </span>
+                        </button>
+                    ))}
+            </div>
+
             {/* Selection Modal - Portaled to Body for correct z-index handling */}
             {selectedDayEvents && createPortal(
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm touch-none" onClick={() => setSelectedDayEvents(null)}>
-                    <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="bg-white border-4 border-black shadow-[8px_8px_0px_#044f2d] p-6 w-full max-w-sm relative"
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedDayEvents(null)}>
+                    <div
+                        className="bg-white border-4 border-black shadow-[8px_8px_0px_#044f2d] p-6 w-full max-w-sm relative z-50 animate-in fade-in zoom-in duration-200"
                         onClick={e => e.stopPropagation()}
                     >
                         <button
@@ -219,7 +250,7 @@ const Calendar = () => {
                                 </button>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
                 </div>,
                 document.body
             )}
