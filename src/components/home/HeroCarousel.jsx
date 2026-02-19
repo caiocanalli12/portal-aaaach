@@ -105,15 +105,15 @@ const HeroCarousel = () => {
                 {/* Navigation Buttons (Classic aesthetic) */}
                 <button
                     onClick={() => paginate(-1)}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-college-green border-r-4 border-y-4 border-black text-white p-4 hover:bg-college-gold hover:text-black transition-colors hidden md:block shadow-[4px_4px_0px_#000]"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-college-green border-r-4 border-y-4 border-black text-white p-2 md:p-4 hover:bg-college-gold hover:text-black transition-colors shadow-[4px_4px_0px_#000]"
                 >
-                    <ChevronLeft size={32} strokeWidth={3} />
+                    <ChevronLeft size={32} strokeWidth={3} className="w-6 h-6 md:w-8 md:h-8" />
                 </button>
                 <button
                     onClick={() => paginate(1)}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-college-green border-l-4 border-y-4 border-black text-white p-4 hover:bg-college-gold hover:text-black transition-colors hidden md:block shadow-[-4px_4px_0px_#000]"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-college-green border-l-4 border-y-4 border-black text-white p-2 md:p-4 hover:bg-college-gold hover:text-black transition-colors shadow-[-4px_4px_0px_#000]"
                 >
-                    <ChevronRight size={32} strokeWidth={3} />
+                    <ChevronRight size={32} strokeWidth={3} className="w-6 h-6 md:w-8 md:h-8" />
                 </button>
             </div>
         </section>
