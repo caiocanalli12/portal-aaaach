@@ -148,7 +148,7 @@ const Calendar = () => {
                             whileHover={events && !isUnclickable ? { scale: 1.05 } : {}}
                             style={hasCustomBg ? { backgroundColor: hasCustomBg } : {}}
                             className={`
-                                aspect-square min-h-[60px] md:min-h-auto flex flex-col items-center justify-between relative border-2 p-0.5 md:p-1 overflow-hidden z-10 hover:z-20 select-none
+                                aspect-square flex flex-col items-center justify-center relative border-2 p-1 overflow-hidden z-10 hover:z-20 select-none
                                 ${isToday ? 'bg-college-gold border-black' :
                                     hasCustomBg ? 'border-black text-white' :
                                         events ? 'bg-college-green border-black cursor-pointer' :
@@ -156,36 +156,16 @@ const Calendar = () => {
                                 ${isUnclickable ? 'cursor-default' : ''}
                             `}
                         >
-                            <span className={`text-sm md:text-2xl font-bold font-display z-10 ${isToday ? 'text-black' : (events || hasCustomBg) ? 'text-white' : 'text-gray-400 hover:text-black'}`}>
+                            <span className={`text-lg md:text-2xl font-bold font-display z-10 ${isToday ? 'text-black' : (events || hasCustomBg) ? 'text-white' : 'text-gray-400 hover:text-black'}`}>
                                 {day}
                             </span>
-
-                            {/* Event Stickers Container - Pinned to Bottom */}
-                            {events && (
-                                <div className="hidden md:flex absolute bottom-1 w-full px-0.5 flex-col gap-0.5 md:gap-1 z-20">
-                                    {events.map((event, index) => (
-                                        <div
-                                            key={index}
-                                            className={`bg-black text-white text-[6px] md:text-[10px] leading-tight font-bold px-0.5 py-0.5 md:px-1 
-                                                shadow-[1px_1px_0px_#fff] text-center border border-white truncate transform
-                                                ${events.length === 1
-                                                    ? (day % 2 === 0 ? 'rotate-2' : '-rotate-2')
-                                                    : (index % 2 === 0 ? '-rotate-2' : 'rotate-2')
-                                                }
-                                            `}
-                                        >
-                                            {event.label}
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </motion.div>
                     );
                 })}
             </motion.div>
 
-            {/* Mobile Legend */}
-            <div className="mt-8 md:hidden flex flex-col gap-3">
+            {/* Event Legend */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {Object.entries(EVENTS)
                     .filter(([key]) => key.startsWith(`${currentDate.getMonth()}-`))
                     .sort((a, b) => parseInt(a[0].split('-')[1]) - parseInt(b[0].split('-')[1]))
