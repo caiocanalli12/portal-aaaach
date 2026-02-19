@@ -99,12 +99,12 @@ import treinosImg from '../../assets/images/ARTES/treinos.jpeg';
 import amistososImg from '../../assets/images/ARTES/amistosos.jpeg';
 import ichoppadaImg from '../../assets/images/ARTES/ichoppada.jpeg';
 import manualImg from '../../assets/images/ARTES/manual.jpeg';
-import manualPdf from '../../assets/MANUAL DO BIXO BOM 2026.docx.pdf';
+import manualPdf from '../../assets/MANUAL DO BIXO BOM 2026.pdf';
 
 const ContentSection = () => {
     const startHere = [
         {
-            title: "MANUAL DO BIXO BOM",
+            title: "O MANUAL DO BIXO BOM",
             subtitle: "Guia de sobrevivência do bixo!",
             category: "IMPORTANTE",
             image: manualImg,
