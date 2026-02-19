@@ -90,8 +90,8 @@ const HeroCarousel = () => {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Indicators - Squares instead of dots */}
-                <div className="absolute top-8 right-8 flex gap-3 z-20">
+                {/* Indicators - Squares instead of dots - Hidden on mobile */}
+                <div className="hidden md:flex absolute top-8 right-8 gap-3 z-20">
                     {HERO_ITEMS.map((_, index) => (
                         <button
                             key={index}
