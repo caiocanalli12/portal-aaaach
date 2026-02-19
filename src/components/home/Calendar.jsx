@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -101,10 +102,11 @@ const Calendar = () => {
             </div>
 
             <motion.div
-                className="grid grid-cols-7 gap-2 md:gap-4 bg-white p-4 border-4 border-black shadow-[12px_12px_0px_#ccc] touch-pan-y relative z-0"
+                className="grid grid-cols-7 gap-1 md:gap-4 bg-white p-2 md:p-4 border-4 border-black shadow-[12px_12px_0px_#ccc] touch-pan-y relative z-0"
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1}
+                dragElastic={0.2}
+                dragDirectionLock={true}
                 onDragEnd={(e, { offset, velocity }) => {
                     const swipe = swipePower(offset.x, velocity.x);
 
@@ -117,7 +119,7 @@ const Calendar = () => {
             >
                 {/* Weekday Headers */}
                 {['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((day, i) => (
-                    <div key={i} className="text-center font-black font-display text-xl py-2 bg-gray-100 border-2 border-transparent select-none">{day}</div>
+                    <div key={i} className="text-center font-black font-display text-sm md:text-xl py-2 bg-gray-100 border-2 border-transparent select-none">{day}</div>
                 ))}
 
                 {/* Empty slots for previous month days */}
@@ -146,7 +148,7 @@ const Calendar = () => {
                             whileHover={events && !isUnclickable ? { scale: 1.05 } : {}}
                             style={hasCustomBg ? { backgroundColor: hasCustomBg } : {}}
                             className={`
-                                aspect-square flex flex-col items-center justify-between relative border-2 p-1 overflow-hidden z-10 hover:z-20 select-none
+                                aspect-square min-h-[60px] md:min-h-auto flex flex-col items-center justify-between relative border-2 p-0.5 md:p-1 overflow-hidden z-10 hover:z-20 select-none
                                 ${isToday ? 'bg-college-gold border-black' :
                                     hasCustomBg ? 'border-black text-white' :
                                         events ? 'bg-college-green border-black cursor-pointer' :
@@ -154,18 +156,18 @@ const Calendar = () => {
                                 ${isUnclickable ? 'cursor-default' : ''}
                             `}
                         >
-                            <span className={`text-lg md:text-2xl font-bold font-display z-10 ${isToday ? 'text-black' : (events || hasCustomBg) ? 'text-white' : 'text-gray-400 hover:text-black'}`}>
+                            <span className={`text-sm md:text-2xl font-bold font-display z-10 ${isToday ? 'text-black' : (events || hasCustomBg) ? 'text-white' : 'text-gray-400 hover:text-black'}`}>
                                 {day}
                             </span>
 
                             {/* Event Stickers Container - Pinned to Bottom */}
                             {events && (
-                                <div className="absolute bottom-1 w-full px-0.5 flex flex-col gap-1 z-20">
+                                <div className="absolute bottom-1 w-full px-0.5 flex flex-col gap-0.5 md:gap-1 z-20">
                                     {events.map((event, index) => (
                                         <div
                                             key={index}
-                                            className={`bg-black text-white text-[8px] md:text-[10px] lg:text-[10px] font-bold px-1 py-0.5 
-                                                shadow-[1px_1px_0px_#fff] text-center leading-none border border-white truncate transform
+                                            className={`bg-black text-white text-[6px] md:text-[10px] leading-tight font-bold px-0.5 py-0.5 md:px-1 
+                                                shadow-[1px_1px_0px_#fff] text-center border border-white truncate transform
                                                 ${events.length === 1
                                                     ? (day % 2 === 0 ? 'rotate-2' : '-rotate-2')
                                                     : (index % 2 === 0 ? '-rotate-2' : 'rotate-2')
@@ -182,13 +184,13 @@ const Calendar = () => {
                 })}
             </motion.div>
 
-            {/* Selection Modal */}
-            {selectedDayEvents && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setSelectedDayEvents(null)}>
+            {/* Selection Modal - Portaled to Body for correct z-index handling */}
+            {selectedDayEvents && createPortal(
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm touch-none" onClick={() => setSelectedDayEvents(null)}>
                     <motion.div
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        className="bg-white border-4 border-black shadow-[8px_8px_0px_#college-green] p-6 w-full max-w-sm relative"
+                        className="bg-white border-4 border-black shadow-[8px_8px_0px_#044f2d] p-6 w-full max-w-sm relative"
                         onClick={e => e.stopPropagation()}
                     >
                         <button
@@ -218,7 +220,8 @@ const Calendar = () => {
                             ))}
                         </div>
                     </motion.div>
-                </div>
+                </div>,
+                document.body
             )}
         </section>
     );
