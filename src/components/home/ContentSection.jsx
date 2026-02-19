@@ -7,8 +7,12 @@ const ContentCard = ({ title, subtitle, category, image, date, link }) => {
 
     const handleClick = () => {
         if (link) {
-            navigate(link);
-            window.scrollTo(0, 0);
+            if (link.endsWith('.pdf')) {
+                window.open(link, '_blank');
+            } else {
+                navigate(link);
+                window.scrollTo(0, 0);
+            }
         }
     };
 
@@ -91,15 +95,23 @@ import basqueteImg from '../../assets/images/ARTES/basquete_int.jpeg';
 import voleiImg from '../../assets/images/ARTES/volei_int.jpeg';
 import semaforoImg from '../../assets/images/ARTES/semaforo.jpeg';
 import jogosImg from '../../assets/images/ARTES/jajogos.jpg';
-
-
 import treinosImg from '../../assets/images/ARTES/treinos.jpeg';
-
 import amistososImg from '../../assets/images/ARTES/amistosos.jpeg';
-
 import ichoppadaImg from '../../assets/images/ARTES/ichoppada.jpeg';
+import manualImg from '../../assets/images/ARTES/manual.jpeg';
+import manualPdf from '../../assets/MANUAL DO BIXO BOM 2026.docx.pdf';
 
 const ContentSection = () => {
+    const startHere = [
+        {
+            title: "MANUAL DO BIXO BOM",
+            subtitle: "Guia de sobrevivência do bixo!",
+            category: "IMPORTANTE",
+            image: manualImg,
+            link: manualPdf
+        }
+    ];
+
     const events = [
         {
             title: "BASQUETE INTEGRAÇÃO",
@@ -148,24 +160,28 @@ const ContentSection = () => {
             title: "TREINOS GERAIS",
             subtitle: "Confira a grade semanal",
             category: "ESPORTE",
-            image: treinosImg
+            image: treinosImg,
+            link: "/sports/treinos"
         },
         {
             title: "AMISTOSOS",
             subtitle: "Venha jogar e torcer!",
             category: "ESPORTE",
-            image: amistososImg
+            image: amistososImg,
+            link: "/sports/amistosos"
         },
         {
             title: "JOGOS",
             subtitle: "Jogos Interatléticas (EM BREVE!)",
             category: "ESPORTE",
-            image: jogosImg
+            image: jogosImg,
+            link: "/sports/jogos"
         }
     ];
 
     return (
         <section className="w-full max-w-[1400px] mx-auto py-8">
+            <CarouselRow title="Comece por aqui" items={startHere} id="start-here" />
             <CarouselRow title="Próximos Eventos" items={events} id="events" />
             <CarouselRow title="Nossos Esportes" items={sports} id="sports" />
         </section>

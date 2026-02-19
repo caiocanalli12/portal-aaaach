@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import bemVindoImg from '../../assets/images/ARTES/bem vindo.jpeg';
 
+import bannerImg from '../../assets/images/ARTES/banner.jpeg';
+
 const HERO_ITEMS = [
     {
         id: 1,
@@ -15,11 +17,12 @@ const HERO_ITEMS = [
         id: 2,
         title: "GESTÃO 2k26",
         subtitle: "INOVAÇÃO E RAÇA",
-        image: null, // Art is coming soon
+        image: bannerImg,
+        link: "#management"
     }
 ];
 
-const swipeConfidenceThreshold = 10000;
+const svipeConfidenceThreshold = 10000;
 const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
 };
@@ -38,6 +41,15 @@ const HeroCarousel = () => {
         setCurrentIndex((prev) => (prev + newDirection + HERO_ITEMS.length) % HERO_ITEMS.length);
     };
 
+    const handleSlideClick = (item) => {
+        if (item.link) {
+            const element = document.querySelector(item.link);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
         <section className="w-full max-w-[1400px] px-4 md:px-8 pt-8 pb-12 flex justify-center">
             <div className="relative w-full aspect-[7/5] md:aspect-[21/9] lg:aspect-[7/4] bg-white border-[8px] border-college-green shadow-[10px_10px_0px_#1a1a1a] overflow-hidden group">
@@ -45,6 +57,7 @@ const HeroCarousel = () => {
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentIndex}
+                        onClick={() => handleSlideClick(HERO_ITEMS[currentIndex])}
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -100 }}
@@ -61,7 +74,7 @@ const HeroCarousel = () => {
                                 paginate(-1);
                             }
                         }}
-                        className="absolute inset-0 w-full h-full touch-pan-y"
+                        className={`absolute inset-0 w-full h-full touch-pan-y ${HERO_ITEMS[currentIndex].link ? 'cursor-pointer' : ''}`}
                     >
                         {HERO_ITEMS[currentIndex].image ? (
                             <img

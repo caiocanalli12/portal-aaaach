@@ -1,20 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin, ChevronLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 
 import semaforoImg from '../assets/images/ARTES/semaforo.jpeg';
 
 const SemaforoPage = () => {
+    const navigate = useNavigate();
+
     return (
         <MainLayout>
             <div className="w-full max-w-[1000px] mx-auto px-4 md:px-8 py-12">
                 {/* Back Button */}
-                <Link to="/" className="inline-flex items-center gap-2 mb-8 text-black hover:text-college-green font-display font-bold uppercase transition-colors">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="inline-flex items-center gap-2 mb-8 text-black hover:text-college-green font-display font-bold uppercase transition-colors"
+                >
                     <ChevronLeft size={24} strokeWidth={3} />
                     Voltar para Início
-                </Link>
+                </button>
 
                 {/* Header */}
                 <div className="mb-12 border-l-8 border-college-green pl-6 py-2">
