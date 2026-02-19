@@ -12,6 +12,7 @@ const HERO_ITEMS = [
         title: "BEM-VINDO À AAAACH",
         subtitle: "IFUDEU FEDERAL APARECEU!",
         image: bemVindoImg,
+        link: "#start-here"
     },
     {
         id: 2,
