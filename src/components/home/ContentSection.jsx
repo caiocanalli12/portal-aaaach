@@ -134,7 +134,7 @@ const ContentSection = () => {
             subtitle: "Para começar com o pé direito!",
             category: "INTEGRAÇÃO",
             image: semaforoImg,
-            date: "18/03",
+            date: "19/03",
             link: "/event/semaforo"
         },
         {
@@ -142,7 +142,7 @@ const ContentSection = () => {
             subtitle: "A farra continua!",
             category: "FESTAS",
             image: ichoppadaImg, // Replaced placeholder with imported image
-            date: "18/03",
+            date: "19/03",
             link: "/event/choppada"
         },
         {

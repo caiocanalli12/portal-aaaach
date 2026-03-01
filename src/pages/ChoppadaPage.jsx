@@ -74,7 +74,7 @@ const ChoppadaPage = () => {
                                     <Calendar className="text-college-dark-green shrink-0 mt-1" size={24} />
                                     <div>
                                         <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">DATA</p>
-                                        <p className="font-display font-bold text-xl">18 de Março</p>
+                                        <p className="font-display font-bold text-xl">19 de Março</p>
                                     </div>
                                 </div>
 
