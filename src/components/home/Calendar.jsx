@@ -49,8 +49,9 @@ const Calendar = () => {
     const EVENTS = {
         "1-23": [{ label: "VETERANOS COMEÇAM AQUI", type: "info", customBg: "#6b0202", noClick: true }],
         "2-9": [{ label: "BIXOS COMEÇAM AQUI", type: "info", customBg: "#6b0202", noClick: true }],
-        "2-10": [{ label: "BASQUETE", type: "sport", link: "/event/basquete" }],
-        "2-11": [{ label: "VÔLEI", type: "sport", link: "/event/volei" }],
+        "2-10": [{ label: "BASQUETE", type: "sport", customBg: "#044f2d", noClick: true }],
+        "2-11": [{ label: "VÔLEI", type: "sport", customBg: "#044f2d", noClick: true }],
+        "2-18": [{ label: "AMISTOSO FUTSAL", type: "sport", link: "/sports/amistosos" }],
         "2-19": [
             { label: "SEMÁFORO", type: "party", link: "/event/semaforo", position: "top" },
             { label: "I CHOPPADA", type: "party", link: "/event/choppada", position: "bottom" }

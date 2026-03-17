@@ -99,6 +99,7 @@ import treinosImg from '../../assets/images/ARTES/treinos.jpeg';
 import amistososImg from '../../assets/images/ARTES/amistosos.jpeg';
 import ichoppadaImg from '../../assets/images/ARTES/ichoppada.jpeg';
 import manualImg from '../../assets/images/ARTES/manual.jpeg';
+import amistosoFutImg from '../../assets/images/ARTES/amistosofut.png';
 import manualPdf from '../../assets/MANUAL DO BIXO BOM 2026.pdf';
 
 const ContentSection = () => {
@@ -114,20 +115,12 @@ const ContentSection = () => {
 
     const events = [
         {
-            title: "BASQUETE INTEGRAÇÃO",
-            subtitle: "Integração Bixos e Veteranos",
+            title: "AMISTOSO FUTSAL",
+            subtitle: "IF x Eng. Software",
             category: "ESPORTE",
-            image: basqueteImg,
-            date: "10/03",
-            link: "/event/basquete"
-        },
-        {
-            title: "VÔLEI INTEGRAÇÃO",
-            subtitle: "Integração Bixos e Veteranos",
-            category: "ESPORTE",
-            image: voleiImg,
-            date: "11/03",
-            link: "/event/volei"
+            image: amistosoFutImg,
+            date: "18/03",
+            link: "/sports/amistosos"
         },
         {
             title: "SEMÁFORO",
