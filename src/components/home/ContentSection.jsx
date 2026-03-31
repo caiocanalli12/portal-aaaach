@@ -115,36 +115,12 @@ const ContentSection = () => {
 
     const events = [
         {
-            title: "AMISTOSO FUTSAL",
-            subtitle: "IF x Eng. Software",
+            title: "AMISTOSO BASQUETE",
+            subtitle: "AAAACH x Direito UNIFEOB",
             category: "ESPORTE",
-            image: amistosoFutImg,
-            date: "18/03",
+            image: basqueteImg,
+            date: "31/03",
             link: "/sports/amistosos"
-        },
-        {
-            title: "SEMÁFORO",
-            subtitle: "Para começar com o pé direito!",
-            category: "INTEGRAÇÃO",
-            image: semaforoImg,
-            date: "19/03",
-            link: "/event/semaforo"
-        },
-        {
-            title: "I CHOPPADA DO LAGARTO",
-            subtitle: "A farra continua!",
-            category: "FESTAS",
-            image: ichoppadaImg, // Replaced placeholder with imported image
-            date: "19/03",
-            link: "/event/choppada"
-        },
-        {
-            title: "CALOURADA",
-            subtitle: "Recepção dos Bixos 2k26",
-            category: "FESTAS",
-            image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2670&auto=format&fit=crop",
-            date: "26/03",
-            link: "/event/calourada"
         }
     ];
 

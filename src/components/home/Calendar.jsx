@@ -56,7 +56,8 @@ const Calendar = () => {
             { label: "SEMÁFORO", type: "party", link: "/event/semaforo", position: "top" },
             { label: "I CHOPPADA", type: "party", link: "/event/choppada", position: "bottom" }
         ],
-        "2-26": [{ label: "CALOURADA", type: "party", link: "/event/calourada" }]
+        "2-26": [{ label: "CALOURADA", type: "party", link: "/event/calourada" }],
+        "2-31": [{ label: "AMISTOSO BASQUETE", type: "sport", link: "/sports/amistosos" }]
     };
 
     const [selectedDayEvents, setSelectedDayEvents] = useState(null);
