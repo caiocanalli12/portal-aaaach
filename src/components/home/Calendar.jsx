@@ -51,12 +51,14 @@ const Calendar = () => {
         "2-9": [{ label: "BIXOS COMEÇAM AQUI", type: "info", customBg: "#6b0202", noClick: true }],
         "2-10": [{ label: "BASQUETE", type: "sport", customBg: "#044f2d", noClick: true }],
         "2-11": [{ label: "VÔLEI", type: "sport", customBg: "#044f2d", noClick: true }],
-        "2-18": [{ label: "AMISTOSO FUTSAL", type: "sport", link: "/sports/amistosos" }],
+        "2-18": [{ label: "AMISTOSO FUTSAL", type: "sport", customBg: "#044f2d", noClick: true }],
         "2-19": [
-            { label: "SEMÁFORO", type: "party", link: "/event/semaforo", position: "top" },
-            { label: "I CHOPPADA", type: "party", link: "/event/choppada", position: "bottom" }
+            { label: "SEMÁFORO", type: "party", noClick: true, position: "top" },
+            { label: "I CHOPPADA", type: "party", noClick: true, position: "bottom" }
         ],
-        "2-26": [{ label: "CALOURADA", type: "party", link: "/event/calourada" }]
+        "2-26": [{ label: "CALOURADA", type: "party", noClick: true }],
+        "3-7": [{ label: "AMISTOSO BASQUETE", type: "sport", customBg: "#044f2d", noClick: true }],
+        "3-9": [{ label: "CAMPEONATO DE TRUCO", type: "sport", customBg: "#044f2d", noClick: true }]
     };
 
     const [selectedDayEvents, setSelectedDayEvents] = useState(null);
