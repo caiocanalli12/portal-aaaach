@@ -91,7 +91,6 @@ const CarouselRow = ({ title, items, id }) => {
 };
 
 
-import basqueteImg from '../../assets/images/ARTES/basquete_int.jpeg';
 import voleiImg from '../../assets/images/ARTES/volei_int.jpeg';
 import semaforoImg from '../../assets/images/ARTES/semaforo.jpeg';
 import jogosImg from '../../assets/images/ARTES/jajogos.jpg';
@@ -113,16 +112,7 @@ const ContentSection = () => {
         }
     ];
 
-    const events = [
-        {
-            title: "AMISTOSO BASQUETE",
-            subtitle: "AAAACH x Direito UNIFEOB",
-            category: "ESPORTE",
-            image: basqueteImg,
-            date: "31/03",
-            link: "/sports/amistosos"
-        }
-    ];
+    const events = [];
 
     const sports = [
         {
