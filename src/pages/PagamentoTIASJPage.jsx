@@ -18,7 +18,6 @@ const PagamentoTIASJPage = () => {
     const truncatedPix = pixCode.substring(0, 32) + "...";
 
     const contacts = [
-        { name: "Paia", number: "5519999761093", display: "+55 19 99976-1093" },
         { name: "Raissa", number: "5515997216434", display: "+55 15 99721-6434" },
         { name: "Caio", number: "5519984209981", display: "+55 19 98420-9981" }
     ];
