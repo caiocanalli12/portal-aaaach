@@ -6,6 +6,7 @@ import CalouradaPage from './pages/CalouradaPage';
 import ChoppadaPage from './pages/ChoppadaPage';
 import AmistososPage from './pages/AmistososPage';
 import JogosPage from './pages/JogosPage';
+import PagamentoTIASJPage from './pages/PagamentoTIASJPage';
 import TreinosPage from './pages/TreinosPage';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/event/choppada" element={<ChoppadaPage />} />
         <Route path="/sports/amistosos" element={<AmistososPage />} />
         <Route path="/sports/jogos" element={<JogosPage />} />
+        <Route path="/sports/jogos/pagamento" element={<PagamentoTIASJPage />} />
         <Route path="/sports/treinos" element={<TreinosPage />} />
       </Routes>
     </Router>
