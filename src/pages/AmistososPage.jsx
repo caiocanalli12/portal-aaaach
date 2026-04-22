@@ -2,6 +2,7 @@ import React from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
+
 const AmistososPage = () => {
     const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ const AmistososPage = () => {
                         AMISTOSOS
                     </h1>
                     <p className="text-xl md:text-2xl font-display font-bold text-gray-500 uppercase tracking-widest">
-                        Venha torcer pela Lagarto!
+                        Venha torcer pelo Lagarto!
                     </p>
                 </div>
 
