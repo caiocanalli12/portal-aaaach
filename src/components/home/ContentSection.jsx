@@ -99,7 +99,7 @@ import amistososImg from '../../assets/images/ARTES/amistosos.jpeg';
 import ichoppadaImg from '../../assets/images/ARTES/ichoppada.jpeg';
 import manualImg from '../../assets/images/ARTES/manual.jpeg';
 import amistosoFutImg from '../../assets/images/ARTES/amistosofut.png';
-import tiasjImg from '../../assets/images/ARTES/tiasj.png';
+import festaJuninaImg from '../../assets/images/ARTES/festajunina.jpeg';
 import manualPdf from '../../assets/MANUAL DO BIXO BOM 2026.pdf';
 
 const ContentSection = () => {
@@ -146,21 +146,21 @@ const ContentSection = () => {
 
                 <div className="px-4 md:px-8">
                     <div 
-                        onClick={() => { navigate('/sports/jogos'); window.scrollTo(0,0); }}
+                        onClick={() => { navigate('/events/festa-junina'); window.scrollTo(0,0); }}
                         className="group relative w-full aspect-auto md:aspect-[3/1] bg-white border-4 border-black shadow-[12px_12px_0px_#000] overflow-hidden cursor-pointer flex flex-col md:flex-row transition-all hover:shadow-[16px_16px_0px_#004d25] hover:-translate-y-1"
                     >
                         <div className="w-full md:w-[70%] h-64 md:h-full overflow-hidden relative border-b-4 md:border-b-0 md:border-r-4 border-black">
-                             <img src={tiasjImg} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                             <img src={festaJuninaImg} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                              <div className="absolute top-4 left-4 bg-college-gold border-2 border-black px-4 py-1 shadow-[4px_4px_0px_#000]">
-                                <span className="text-black text-xs font-display font-bold tracking-wider uppercase">ESPORTE</span>
+                                <span className="text-black text-xs font-display font-bold tracking-wider uppercase">EVENTO</span>
                              </div>
                         </div>
                         <div className="w-full md:w-[30%] bg-white p-6 md:p-8 flex flex-col justify-center relative">
                              <h3 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-black uppercase leading-none mb-3 group-hover:text-college-green transition-colors">
-                                 JOGOS
+                                 FESTA JUNINA
                              </h3>
                              <p className="text-gray-600 text-lg lg:text-xl font-medium border-t-2 border-gray-200 pt-4">
-                                 Torneio Interatléticas de São João <span className="bg-college-gold text-black px-2 inline-block ml-1 border-2 border-black rotate-2 shadow-[2px_2px_0px_#000]">(TIASJ)</span>
+                                 Arraiá da AAACH
                              </p>
                              <div className="absolute bottom-0 right-0 w-0 h-0 border-t-[40px] border-t-transparent border-r-[40px] border-r-college-green/50 group-hover:border-r-college-green transition-colors" />
                         </div>

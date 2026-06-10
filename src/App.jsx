@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react
 import HomePage from './pages/HomePage';
 
 import AmistososPage from './pages/AmistososPage';
-import JogosPage from './pages/JogosPage';
-import PagamentoTIASJPage from './pages/PagamentoTIASJPage';
+import FestaJuninaPage from './pages/FestaJuninaPage';
+import PagamentoFestaJuninaPage from './pages/PagamentoFestaJuninaPage';
 import TreinosPage from './pages/TreinosPage';
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route path="/sports/amistosos" element={<AmistososPage />} />
-        <Route path="/sports/jogos" element={<JogosPage />} />
-        <Route path="/sports/jogos/pagamento" element={<PagamentoTIASJPage />} />
+        <Route path="/events/festa-junina" element={<FestaJuninaPage />} />
+        <Route path="/events/festa-junina/pagamento/:ticketType" element={<PagamentoFestaJuninaPage />} />
         <Route path="/sports/treinos" element={<TreinosPage />} />
       </Routes>
     </Router>

@@ -61,7 +61,8 @@ const Calendar = () => {
         "3-9": [{ label: "CAMPEONATO DE TRUCO", type: "sport", customBg: "#044f2d", noClick: true }],
         "4-29": [{ label: "TIASJ (DIA 1)", type: "sport", customBg: "#044f2d", link: "/sports/jogos" }],
         "4-30": [{ label: "TIASJ (DIA 2)", type: "sport", customBg: "#044f2d", link: "/sports/jogos" }],
-        "4-31": [{ label: "TIASJ (FINAL)", type: "sport", customBg: "#044f2d", link: "/sports/jogos" }]
+        "4-31": [{ label: "TIASJ (FINAL)", type: "sport", customBg: "#044f2d", link: "/sports/jogos" }],
+        "5-18": [{ label: "FESTA JUNINA", type: "party", link: "/events/festa-junina" }]
     };
 
     const [selectedDayEvents, setSelectedDayEvents] = useState(null);

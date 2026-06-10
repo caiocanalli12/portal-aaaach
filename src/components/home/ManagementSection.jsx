@@ -2,14 +2,11 @@ import React from 'react';
 
 // Import images
 import paiaImg from '../../assets/images/gestao/paia.jpeg';
-import pmImg from '../../assets/images/gestao/pm.jpeg';
-import chicoImg from '../../assets/images/gestao/chico.jpeg';
 import mengardoImg from '../../assets/images/gestao/mengardo.jpeg';
 import beliImg from '../../assets/images/gestao/beli.jpeg';
 import gasparImg from '../../assets/images/gestao/gaspar.jpeg';
 import isaImg from '../../assets/images/gestao/isa.jpeg';
 import matheusImg from '../../assets/images/gestao/matheus.jpeg';
-import evelynImg from '../../assets/images/gestao/evelyn.jpeg';
 import jotadImg from '../../assets/images/gestao/jotad.jpeg';
 import malaspinaImg from '../../assets/images/gestao/malaspina.jpeg';
 import iemonImg from '../../assets/images/gestao/iemon.jpeg';
@@ -26,15 +23,14 @@ const MANAGEMENT_DATA = [
         sector: 'PRESIDÊNCIA',
         members: [
             { name: 'PAIA', role: 'PRESIDENTE', image: paiaImg },
-            { name: 'PM', role: 'VICE PRESIDENTE', image: pmImg },
+            { name: 'CAIO', role: 'VICE PRESIDENTE', image: caioImg },
         ]
     },
     {
         sector: 'EVENTOS',
         members: [
-            { name: 'CHICO', role: 'DIRETOR', image: chicoImg },
+            { name: 'BELI', role: 'DIRETOR', image: beliImg },
             { name: 'MENGARDO', role: null, image: mengardoImg },
-            { name: 'BELI', role: null, image: beliImg },
             { name: 'GASPAR', role: null, image: gasparImg },
             { name: 'ISA', role: null, image: isaImg },
             { name: 'MATHEUS', role: null, image: matheusImg },
@@ -43,11 +39,10 @@ const MANAGEMENT_DATA = [
     {
         sector: 'MÍDIAS SOCIAIS',
         members: [
-            { name: 'EVELYN', role: 'DIRETORA', image: evelynImg },
+            { name: 'DA BRISA', role: 'DIRETORA', image: dabrisaImg },
             { name: 'JOTAD', role: null, image: jotadImg },
             { name: 'MALASPINA', role: null, image: malaspinaImg },
             { name: 'IEMON', role: null, image: iemonImg },
-            { name: 'DA BRISA', role: null, image: dabrisaImg },
             { name: 'BOQUINHA', role: null, image: boquinhaImg },
             { name: 'KANT', role: null, image: kantImg },
             { name: 'ROGÉRIO', role: null, image: rogerioImg },
