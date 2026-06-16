@@ -8,6 +8,7 @@ import img20 from '../assets/images/pix/20.jpeg';
 import img25 from '../assets/images/pix/25.jpeg';
 import img75 from '../assets/images/pix/75.jpeg';
 import img100 from '../assets/images/pix/100.jpeg';
+import img00 from '../assets/images/pix/00.jpeg';
 
 const TICKET_DATA = {
     'bixo': {
@@ -30,15 +31,15 @@ const TICKET_DATA = {
     },
     'grupo-if': {
         title: 'COMBO 5+ IF',
-        price: 'R$ 75,00',
-        pixCode: '00020126580014BR.GOV.BCB.PIX0136ffe3856c-53d9-40e5-a265-364bd2254bca520400005303986540575.005802BR5912Caio Canalli6009SAO PAULO62140510R4ds5pf9bB63044377',
-        image: img75
+        price: 'R$ 15,00 POR PESSOA',
+        pixCode: '00020126580014BR.GOV.BCB.PIX0136ffe3856c-53d9-40e5-a265-364bd2254bca5204000053039865802BR5912Caio Canalli6009SAO PAULO62140510fseJxS8zUE63045AD2',
+        image: img00
     },
     'grupo-externo': {
         title: 'COMBO 5+ EXTERNO',
-        price: 'R$ 100,00',
-        pixCode: '00020126580014BR.GOV.BCB.PIX0136ffe3856c-53d9-40e5-a265-364bd2254bca5204000053039865406100.005802BR5912Caio Canalli6009SAO PAULO621405101r8Xkw3gLY6304B486',
-        image: img100
+        price: 'R$ 20,00 POR PESSOA',
+        pixCode: '00020126580014BR.GOV.BCB.PIX0136ffe3856c-53d9-40e5-a265-364bd2254bca5204000053039865802BR5912Caio Canalli6009SAO PAULO62140510fseJxS8zUE63045AD2',
+        image: img00
     }
 };
 
