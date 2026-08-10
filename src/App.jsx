@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react
 import HomePage from './pages/HomePage';
 
 import AmistososPage from './pages/AmistososPage';
-import FestaJuninaPage from './pages/FestaJuninaPage';
-import PagamentoFestaJuninaPage from './pages/PagamentoFestaJuninaPage';
 import TreinosPage from './pages/TreinosPage';
 
 function App() {
@@ -14,8 +12,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route path="/sports/amistosos" element={<AmistososPage />} />
-        <Route path="/events/festa-junina" element={<FestaJuninaPage />} />
-        <Route path="/events/festa-junina/pagamento/:ticketType" element={<PagamentoFestaJuninaPage />} />
         <Route path="/sports/treinos" element={<TreinosPage />} />
       </Routes>
     </Router>
