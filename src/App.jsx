@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import PurchasePage from './pages/PurchasePage';
 
 import AmistososPage from './pages/AmistososPage';
 import TreinosPage from './pages/TreinosPage';
@@ -10,6 +11,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/comprar" element={<PurchasePage />} />
 
         <Route path="/sports/amistosos" element={<AmistososPage />} />
         <Route path="/sports/treinos" element={<TreinosPage />} />
